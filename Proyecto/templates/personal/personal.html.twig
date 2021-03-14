@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<nav class="navbar navbar-default " style="background: #87CEEB">
+    <div class="container">
+      <a href="" class="navbar-brand">Centro Medico de Salud "Sloan Memorial</a>
+    </div>
+</nav>
+<div class="container p-5">
+
+  <div class="row align-items-start">
+  <div class="col-md-12">
+  
+  <a type="submit" onclick=" location = '{{ path('inicio') }}' " class="btn btn-success btn-block mb-3 d-inline" name="guardar">Menu principal</a>
+    <a type="submit" onclick=" location = '{{ path('agregar_perso') }}' " class="btn btn-success btn-block mb-3 d-inline" name="guardar">Nuevo Personal</a>
+  <div class="col-md-10">
+  {% for label, messages in app.flashes %}
+      {% for message in messages %}
+        <div class="flash-{{ label }}">
+        {{ message }}
+        </div>
+      {% endfor %}
+  {% endfor %}
+      <table class="table table-success table-striped" style="width:100%">
+      <div class="table-responsive">
+        <thead>
+          <tr>
+              <th>Nombre del empleado</th>
+              <th>Edad</th>
+              <th>Departamento</th>
+              <th>Puesto</th>
+              <th>Sueldo</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+       {% for personal in personal %}
+        <tr>
+          <th>{{personal.nombre}}</th>
+          <th>{{personal.edad}}</th>
+          <th>{{personal.departamento}}</th>
+          <th>{{personal.cargo}}</th>
+          <th>${{personal.sueldo}}</th>
+          <th>
+           <a onclick=" location = '{{ path('editar_perso', {id:personal.id}) }}' " class="btn btn-warning btn-sm">
+           <i class="fas fa-marker"></i>
+            </a>
+          </th>
+          <th>         
+            <a href="{{ path('delete_perso', {id: personal.id}) }}" onclick="return confirm('Confirma que quieres eliminar este registro');" class="btn btn-danger">
+            Eliminar
+            </a>
+          </th>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </div>
+      </table>
+  </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

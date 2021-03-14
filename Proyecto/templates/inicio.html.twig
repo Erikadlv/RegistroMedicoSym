@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<nav class="navbar navbar-default"  style="background: #87CEEB";>
+    <div class="container">
+      <a href="" class="navbar-brand">Centro Medico de Salud "Sloan Memorial</a>
+</div>
+</nav>
+
+
+    <div class="container text-center h-200 d-flex justify-content-center align-items-center" style=" padding: 100px;" >
+         <div class="m-4 card" style="background:#ADD8E6; width: 18rem;">
+            <img class="card-img-top" src="https://storage.googleapis.com/www-saludiario-com/wp-content/uploads/2016/03/bigstock-profession-people-health-car-111685883.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Registro del Personal Medico</h5>
+                <p class="card-text">En esta seccion podras registrar al personal medico, actualizar sus datos personales o eliminarlo si la persona se encuentra inactiva</p>
+                <input type="submit" class="btn btn-block" style="background:#4682B4"
+                name="boton_personal" value="Registro Personal" onclick=" location = '{{ path('personal') }}' ">
+            </div>
+        </div>
+        
+        
+        <div class="row nav justify-content-center" style=" padding: 100px;" >
+            <div class="m-4 card" style="background:#ADD8E6; width: 18rem;">
+            <img class="card-img-top" src="https://d7lju56vlbdri.cloudfront.net/var/ezwebin_site/storage/images/_aliases/img_1col/reportajes/vacunas-contra-la-covid-19-el-top-ten-mundial-de-las-candidatas-mas-avanzadas/8315588-4-esl-MX/Vacunas-contra-la-COVID-19-el-top-ten-mundial-de-las-candidatas-mas-avanzadas.jpg" alt="Card image cap">
+              <div class="card-body">  
+                <h4 class="text-center">Registro de Vacunacion</h4>
+                <p class="text-center">En esta sección podras registrar al personal medico que ya ha sido vacunado</p>
+                <input type="submit" style="background:#CD5C5C" class="btn  btn-block" href=""
+                name="boton_vacunacion" value="Registro Vacunas">
+              </div>
+            </div>
+    </div>
+{% endblock %}
